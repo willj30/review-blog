@@ -1,13 +1,14 @@
 const { Schema, model } = require('mongoose');
 
-const techSchema = new Schema({
+const criticSchema = new Schema({
   name: {
     type: String,
     required: true,
     unique: true,
+    trim: true,
   },
 });
 
-const Tech = model('Tech', techSchema);
+const Critic = model('Critic', criticSchema);
 
-module.exports = Tech;
+module.exports = Critic;
