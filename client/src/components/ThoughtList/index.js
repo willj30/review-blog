@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+  
+
+
+
 const ThoughtList = ({
   thoughts,
   title,
@@ -15,15 +20,15 @@ const ThoughtList = ({
     <div>
       {showTitle && <h3>{title}</h3>}
       {thoughts &&
-        thoughts.map((thought) => (
+        thoughts.slice(0,3).map((thought) => (
           <div key={thought._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="card-header text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${thought.thoughtAuthor}`}
+                  to={`/profiles/${thought.ReviewAuthor}`}
                 >
-                  {thought.thoughtAuthor} <br />
+                  {thought.ReviewAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
                     had this thought on {thought.createdAt}
                   </span>
@@ -36,11 +41,11 @@ const ThoughtList = ({
                 </>
               )}
             </h4>
-            <div className="card-body bg-light p-2">
-              <p>{thought.thoughtText}</p>
+            <div className="card-body text-dark bg-light p-2">
+              <p>{thought.ReviewText}</p>
             </div>
             <Link
-              className="btn btn-primary btn-block btn-squared"
+              className="card-btn btn-block btn-rounded"
               to={`/thoughts/${thought._id}`}
             >
               Join the discussion on this thought.

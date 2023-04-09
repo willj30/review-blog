@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Critic } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -12,10 +12,10 @@ const resolvers = {
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Critic.find(params).sort({ createdAt: -1 });
     },
     thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+      return Critic.findOne({ _id: thoughtId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -34,13 +34,13 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
-      if (user) {
+      if (!user) {
         throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
-      if (correctPw) {
+      if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
 
@@ -48,16 +48,16 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }, context) => {
+    addThought: async (parent, { ReviewText }, context) => {
       if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
+        const thought = await Critic.create({
+          ReviewText,
+          ReviewAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
+          { $addToSet: { Reviews: thought._id } }
         );
 
         return thought;
@@ -66,7 +66,7 @@ const resolvers = {
     },
     addComment: async (parent, { thoughtId, commentText }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
+        return Critic.findOneAndUpdate(
           { _id: thoughtId },
           {
             $addToSet: {
@@ -85,7 +85,7 @@ const resolvers = {
       if (context.user) {
         const thought = await Thought.findOneAndDelete({
           _id: thoughtId,
-          thoughtAuthor: context.user.username,
+          ReviewAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -99,7 +99,7 @@ const resolvers = {
     },
     removeComment: async (parent, { thoughtId, commentId }, context) => {
       if (context.user) {
-        return Thought.findOneAndUpdate(
+        return Critic.findOneAndUpdate(
           { _id: thoughtId },
           {
             $pull: {

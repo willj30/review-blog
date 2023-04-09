@@ -8,7 +8,7 @@ import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+  const [ReviewText, setThoughtText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -40,8 +40,8 @@ const ThoughtForm = () => {
     try {
       const { data } = await addThought({
         variables: {
-          thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          ReviewText,
+          ReviewAuthor: Auth.getProfile().data.username,
         },
       });
 
@@ -54,7 +54,7 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
+    if (name === 'ReviewText' && value.length <= 280) {
       setThoughtText(value);
       setCharacterCount(value.length);
     }
@@ -79,9 +79,9 @@ const ThoughtForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
+                name="ReviewText"
                 placeholder="Here's a new thought..."
-                value={thoughtText}
+                value={ReviewText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -109,5 +109,7 @@ const ThoughtForm = () => {
     </div>
   );
 };
+
+
 
 export default ThoughtForm;

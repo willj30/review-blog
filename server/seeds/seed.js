@@ -11,12 +11,12 @@ db.once('open', async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < CriticSeeds.length; i++) {
-      const { _id, CriticAuthor } = await Critic.create(CriticSeeds[i]);
+      const { _id, ReviewAuthor } = await Critic.create(CriticSeeds[i]);
       const user = await User.findOneAndUpdate(
-        { username: CriticAuthor },
+        { username: ReviewAuthor },
         {
           $addToSet: {
-            Critics: _id,
+            Reviews: _id,
           },
         }
       );
