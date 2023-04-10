@@ -8,7 +8,7 @@ export const QUERY_USER = gql`
       email
       thoughts {
         _id
-        thoughtText
+        ReviewText
         createdAt
       }
     }
@@ -19,8 +19,8 @@ export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {
       _id
-      thoughtText
-      thoughtAuthor
+      ReviewText
+      ReviewAuthor
       createdAt
     }
   }
@@ -30,8 +30,8 @@ export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
     thought(thoughtId: $thoughtId) {
       _id
-      thoughtText
-      thoughtAuthor
+      ReviewText
+      ReviewAuthor
       createdAt
       comments {
         _id
@@ -51,8 +51,8 @@ export const QUERY_ME = gql`
       email
       thoughts {
         _id
-        thoughtText
-        thoughtAuthor
+        ReviewText
+        ReviewAuthor
         createdAt
       }
     }

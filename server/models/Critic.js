@@ -2,14 +2,14 @@ const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const criticSchema = new Schema({
-  CriticText: {
+  ReviewText: {
     type: String,
-    required: 'You need to leave a Critic!',
+    required: 'You need to leave a Review!',
     minlength: 1,
     maxlength: 280,
     trim: true,
   },
-  CriticAuthor: {
+ReviewAuthor: {
     type: String,
     required: true,
     trim: true,

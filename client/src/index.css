@@ -360,7 +360,19 @@ body {
     Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   font-size: 16px;
-  color: #1a1a1a;
+  color: #f9f5f5;
+}
+
+
+.GeeksForGeeks {
+  background-image: 
+  url(
+"https://media.geeksforgeeks.org/wp-content/uploads/rk.png");
+  background-size: "cover";
+  height: 100vh;
+  margin-top: -70px;
+  font-size:50px;
+  background-repeat:no-repeat; 
 }
 
 h1,
@@ -920,11 +932,24 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #2d3e50 !important;
+  background-color: #c42104 !important;
+}
+
+.bg-header {
+  background-image: url(https://cdn.shopify.com/s/files/1/0380/3501/products/SS1010_SNACKS.jpg?v=1573148717);
+ height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-info {
-  background-color: #1bbc9b !important;
+  
+  background-image: url(../public/img/theater.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .bg-danger {
@@ -932,7 +957,7 @@ a:hover {
 }
 
 .bg-light {
-  background-color: #d9e9e8 !important;
+  background-color: #eafa0a !important;
 }
 
 .bg-dark {
@@ -979,12 +1004,28 @@ a:hover {
   margin: 0;
   text-decoration: none;
   font-size: 1rem;
-  border-radius: 0.3rem;
+  border-radius: 15px;
   border: 1px solid transparent;
   outline: none;
   color: #1a1a1a;
-  background-color: #aeaeae;
+  background-color: #e6ea08;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.card-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 0 0  15px 15px;
+  border: 1px solid transparent;
+  outline: none;
+  color: #1a1a1a;
+  background-color: #ea0890;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  width: 100%
 }
 
 .btn:hover {
@@ -1030,7 +1071,7 @@ a:hover {
 }
 
 .btn.btn-info {
-  background-color: #1bbc9b;
+  background-color: #060606;
   color: #ffffff;
 }
 
@@ -1039,7 +1080,7 @@ a:hover {
 }
 
 .btn.btn-light {
-  background-color: #d9e9e8;
+  background-color: #e3e31c;
   color: #1a1a1a;
 }
 
@@ -1086,16 +1127,21 @@ a:hover {
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px #5e5959;
 }
 
 .card .card-header {
   padding: 0.375rem;
-  background-color: #2d3e50;
+  background-color: #1cc6ff;
   color: #d9e9e8;
+  border-radius: 15px 15px 0px 0px;
+  
 }
 
 .card .card-body {
   padding: 0.375rem;
+  
 }
 
 .card .card-footer {
@@ -1104,7 +1150,7 @@ a:hover {
 }
 
 .card.card-rounded {
-  border-radius: 0.3rem;
+  
 }
 
 .card.card-rounded .card-header {
