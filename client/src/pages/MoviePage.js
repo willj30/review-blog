@@ -42,7 +42,7 @@ const OmdbContainer = () => {
     Director = '',
     Genre = '',
     Released = '',
-    
+    imdbRating = '',
   } = result;
 
   /* Fall back to default header if `Title` is undefined
@@ -61,6 +61,7 @@ const OmdbContainer = () => {
                 director={Director}
                 genre={Genre}
                 released={Released}
+                imdbRating={imdbRating}
               />
             ) : (
               <h3>No Results to Display</h3>
