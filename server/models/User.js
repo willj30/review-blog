@@ -12,18 +12,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!'],
+    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Must match an email address!'],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
-  // profilePicture: {
-  //   type: String,
-  //   // match: url regex???,
-  //   // default: insert link to default profile picture if none is selected by user,
-  // },
+  profilePicture: {
+    type: String,
+    match: [/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi],
+    // default: insert link to default profile picture if none is selected by user,
+  },
   userBio: {
     type: String,
     default: '',
@@ -34,6 +34,9 @@ const userSchema = new Schema({
       ref: 'Review',
     },
   ],
+  // donations: {
+    // new model for donations?
+  // },
 });
 
 userSchema.pre('save', async function (next) {
