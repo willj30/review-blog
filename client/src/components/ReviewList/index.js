@@ -2,53 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-  
-
-
-
-const ThoughtList = ({
-  thoughts,
+const ReviewList = ({
+  reviews,
   title,
   showTitle = true,
   showUsername = true,
 }) => {
-  if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+  if (!reviews.length) {
+    return <h3>No Reviews Yet</h3>;
   }
 
   return (
     <div>
       {showTitle && <h3>{title}</h3>}
-      {thoughts &&
-        thoughts.slice(0,3).map((thought) => (
-          <div key={thought._id} className="card mb-3">
+      {reviews &&
+        reviews.slice(0,3).map((review) => (
+          <div key={review._id} className="card mb-3">
             <h4 className="card-header text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${thought.ReviewAuthor}`}
+                  to={`/profiles/${review.ReviewAuthor}`}
                 >
-                  {thought.ReviewAuthor} <br />
+                  {review.ReviewAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    had this thought on {thought.createdAt}
+                    left this review on {review.createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You had this thought on {thought.createdAt}
+                    You left this review on {review.createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div className="card-body text-dark bg-light p-2">
-              <p>{thought.ReviewText}</p>
+              <p>{review.ReviewText}</p>
             </div>
             <Link
               className="card-btn btn-block btn-rounded"
-              to={`/thoughts/${thought._id}`}
+              to={`/reviews/${review._id}`}
             >
-              Join the discussion on this thought.
+              Leave a comment on this review!
             </Link>
           </div>
         ))}
@@ -56,4 +52,4 @@ const ThoughtList = ({
   );
 };
 
-export default ThoughtList;
+export default ReviewList;
