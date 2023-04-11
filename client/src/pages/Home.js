@@ -1,15 +1,15 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import ThoughtList from '../components/ThoughtList';
+import ReviewList from '../components/ReviewList';
 
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+import { QUERY_REVIEWS } from '../utils/queries';
 
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+  const { loading, data } = useQuery(QUERY_REVIEWS);
+  const reviews = data?.reviews || [];
 
   return (
     <main>
@@ -26,9 +26,9 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
+            <ReviewList
+              reviews={reviews}
+              title="Latest Reviews:"
             />
           )}
         </div>

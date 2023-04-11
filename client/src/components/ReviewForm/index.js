@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_REVIEW } from '../../utils/mutations';
+import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const ThoughtForm = () => {
-  const [ReviewText, setThoughtText] = useState('');
+const ReviewForm = () => {
+  const [ReviewText, setReviewText] = useState('');
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addReview, { error }] = useMutation(ADD_REVIEW, {
+    update(cache, { data: { addReview } }) {
       try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        const { reviews } = cache.readQuery({ query: QUERY_REVIEWS });
 
         cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          query: QUERY_REVIEWS,
+          data: { reviews: [addReview, ...reviews] },
         });
       } catch (e) {
         console.error(e);
@@ -29,7 +29,7 @@ const ThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, reviews: [...me.reviews, addReview] } },
       });
     },
   });
@@ -38,14 +38,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addReview({
         variables: {
           ReviewText,
           ReviewAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setThoughtText('');
+      setReviewText('');
     } catch (err) {
       console.error(err);
     }
@@ -55,7 +55,7 @@ const ThoughtForm = () => {
     const { name, value } = event.target;
 
     if (name === 'ReviewText' && value.length <= 280) {
-      setThoughtText(value);
+      setReviewText(value);
       setCharacterCount(value.length);
     }
   };
@@ -80,7 +80,7 @@ const ThoughtForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="ReviewText"
-                placeholder="Here's a new thought..."
+                placeholder="Here's a new review..."
                 value={ReviewText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
@@ -90,7 +90,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Review
               </button>
             </div>
             {error && (
@@ -102,7 +102,7 @@ const ThoughtForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to share your reviews. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
@@ -112,4 +112,4 @@ const ThoughtForm = () => {
 
 
 
-export default ThoughtForm;
+export default ReviewForm;
