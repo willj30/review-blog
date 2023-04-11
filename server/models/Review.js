@@ -1,7 +1,13 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
+const omdbAPI = require('../utils/API');
 
-const criticSchema = new Schema({
+
+const reviewSchema = new Schema({
+  omdbID: {
+    type: String,
+    required: true
+  },
   ReviewText: {
     type: String,
     required: 'You need to leave a Review!',
@@ -9,7 +15,7 @@ const criticSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-ReviewAuthor: {
+  ReviewAuthor: {
     type: String,
     required: true,
     trim: true,
@@ -40,6 +46,6 @@ ReviewAuthor: {
   ],
 });
 
-const Critic = model('Critic', criticSchema);
+const Review = model('Review', reviewSchema);
 
-module.exports = Critic;
+module.exports = Review;

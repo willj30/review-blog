@@ -34,6 +34,9 @@ const userSchema = new Schema({
       ref: 'Review',
     },
   ],
+  donations: {
+    type: Number
+  }
 });
 
 userSchema.pre('save', async function (next) {
