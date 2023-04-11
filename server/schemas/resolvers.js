@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Critic } = require('../models');
+const { User, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -12,10 +12,10 @@ const resolvers = {
     },
     reviews: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Critic.find(params).sort({ createdAt: -1 });
+      return Review.find(params).sort({ createdAt: -1 });
     },
     review: async (parent, { reviewId }) => {
-      return Critic.findOne({ _id: reviewId });
+      return Review.findOne({ _id: reviewId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -50,7 +50,7 @@ const resolvers = {
     },
     addReview: async (parent, { ReviewText }, context) => {
       if (context.user) {
-        const review = await Critic.create({
+        const review = await Review.create({
           ReviewText,
           ReviewAuthor: context.user.username,
         });
@@ -66,7 +66,7 @@ const resolvers = {
     },
     addComment: async (parent, { reviewId, commentText }, context) => {
       if (context.user) {
-        return Critic.findOneAndUpdate(
+        return Review.findOneAndUpdate(
           { _id: reviewId },
           {
             $addToSet: {
@@ -99,7 +99,7 @@ const resolvers = {
     },
     removeComment: async (parent, { reviewId, commentId }, context) => {
       if (context.user) {
-        return Critic.findOneAndUpdate(
+        return Review.findOneAndUpdate(
           { _id: reviewId },
           {
             $pull: {
