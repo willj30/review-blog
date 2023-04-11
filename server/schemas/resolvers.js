@@ -5,21 +5,21 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find().populate('');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('reviews');
     },
-    thoughts: async (parent, { username }) => {
+    reviews: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Critic.find(params).sort({ createdAt: -1 });
     },
-    thought: async (parent, { thoughtId }) => {
-      return Critic.findOne({ _id: thoughtId });
+    review: async (parent, { reviewId }) => {
+      return Critic.findOne({ _id: reviewId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate('reviews');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -48,26 +48,26 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { ReviewText }, context) => {
+    addReview: async (parent, { ReviewText }, context) => {
       if (context.user) {
-        const thought = await Critic.create({
+        const review = await Critic.create({
           ReviewText,
           ReviewAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { Reviews: thought._id } }
+          { $addToSet: { Reviews: review._id } }
         );
 
-        return thought;
+        return review;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
+    addComment: async (parent, { reviewId, commentText }, context) => {
       if (context.user) {
         return Critic.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: reviewId },
           {
             $addToSet: {
               comments: { commentText, commentAuthor: context.user.username },
@@ -81,26 +81,26 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeThought: async (parent, { thoughtId }, context) => {
+    removeReview: async (parent, { reviewId }, context) => {
       if (context.user) {
-        const thought = await Thought.findOneAndDelete({
-          _id: thoughtId,
+        const review = await Review.findOneAndDelete({
+          _id: reviewId,
           ReviewAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
+          { $pull: { reviews: review._id } }
         );
 
-        return thought;
+        return review;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { reviewId, commentId }, context) => {
       if (context.user) {
         return Critic.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: reviewId },
           {
             $pull: {
               comments: {

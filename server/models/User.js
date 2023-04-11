@@ -19,10 +19,19 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  // profilePicture: {
+  //   type: String,
+  //   // match: url regex???,
+  //   // default: insert link to default profile picture if none is selected by user,
+  // },
+  userBio: {
+    type: String,
+    default: '',
+  },
+  reviews: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Review',
     },
   ],
 });
