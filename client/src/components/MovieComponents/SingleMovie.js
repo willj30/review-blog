@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Container from '../components/MovieComponents/Container';
-import Row from '../components/MovieComponents/Row';
-import Col from '../components/MovieComponents/Col';
-import Card from '../components/MovieComponents/Card';
-import SearchForm from '../components/MovieComponents/SearchForm';
-import MovieDetail from '../components/MovieComponents/MovieDetail';
-import API from '../../../server/utils/API';
+import Row from './Row';
+import Col from './Col';
+import Card from './Card';
+import SearchForm from './SearchForm';
+import MovieDetail from './MovieDetail';
+import API from '../../../../server/utils/API';
 
 const OmdbContainer = () => {
   // Set state for the search result and the search query
