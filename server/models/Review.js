@@ -6,7 +6,7 @@ const omdbAPI = require('../utils/API');
 const reviewSchema = new Schema({
   omdbID: {
     type: String,
-    required: true
+    // required: true
   },
   ReviewText: {
     type: String,

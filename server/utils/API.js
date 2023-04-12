@@ -1,6 +1,6 @@
-import axios from 'axios';
+const axios = require('axios').default;
 
 const search = async (query) =>
   axios.get(`http://www.omdbapi.com/?apikey=trilogy&t=${query}&rating=pg`);
 
-export default { search };
+module.export = {search} ;
