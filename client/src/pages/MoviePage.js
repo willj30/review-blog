@@ -6,9 +6,10 @@ import Col from '../components/MovieComponents/Col';
 import Card from '../components/MovieComponents/Card';
 import SearchForm from '../components/MovieComponents/SearchForm';
 import MovieDetail from '../components/MovieComponents/MovieDetail';
-import API from '../../../server/utils/API';
+import MovieInfo from '../components/MovieComponents/MovieInfo';
+import API from '../utils/API';
 
-const OmdbContainer = () => {
+const OmdbContainer = (props) => {
   // Set state for the search result and the search query
   const [result, setResult] = useState({});
   const [search, setSearch] = useState('');
@@ -43,6 +44,7 @@ const OmdbContainer = () => {
     Genre = '',
     Released = '',
     imdbRating = '',
+    imdbID = '',
   } = result;
 
   /* Fall back to default header if `Title` is undefined
@@ -55,14 +57,16 @@ const OmdbContainer = () => {
         <Col size="md-8">
           <Card heading={Title || 'Search for a Movie to Begin'}>
             {Title ? (
-              <MovieDetail
-                title={Title}
-                src={Poster}
-                director={Director}
-                genre={Genre}
-                released={Released}
-                imdbRating={imdbRating}
-              />
+              <><MovieDetail
+                src={Poster} />
+                <MovieDetail>
+                  title={Title}
+                  src={Poster}
+                  director={Director}
+                  genre={Genre}
+                  released={Released}
+                  imdbRating={imdbRating}
+                </MovieDetail></>
             ) : (
               <h3>No Results to Display</h3>
             )}
