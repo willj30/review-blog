@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const movieSchema = new Schema({
   omdbID: {
     type: String,
-    required: true
+    // required: true
   },
   name: {
     type: String,
