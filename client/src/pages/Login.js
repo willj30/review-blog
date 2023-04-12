@@ -45,10 +45,10 @@ const Login = (props) => {
       <div className="col-12 col-lg-10">
         <div className="card">
           <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+          <div className="card-popcorn text-white">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You are being redirected{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -70,7 +70,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn card-btn btn-primary"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
