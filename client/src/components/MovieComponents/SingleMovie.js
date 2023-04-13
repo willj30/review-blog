@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Container from '../components/MovieComponents/Container';
+import Container from './Container';
 import Row from './Row';
 import Col from './Col';
 import Card from './Card';
 import SearchForm from './SearchForm';
 import MovieDetail from './MovieDetail';
-import API from '../../../../server/utils/API';
+import API from '../../utils/API';
+import { Link } from 'react-router-dom';
 
-const OmdbContainer = () => {
+const OmdbContainer = (props) => {
   // Set state for the search result and the search query
   const [result, setResult] = useState({});
   const [search, setSearch] = useState('');
@@ -43,6 +44,7 @@ const OmdbContainer = () => {
     Genre = '',
     Released = '',
     imdbRating = '',
+    imdbID = '',
   } = result;
 
   /* Fall back to default header if `Title` is undefined
@@ -55,14 +57,19 @@ const OmdbContainer = () => {
         <Col size="md-8">
           <Card heading={Title || 'Search for a Movie to Begin'}>
             {Title ? (
-              <MovieDetail
-                title={Title}
-                src={Poster}
-                director={Director}
-                genre={Genre}
-                released={Released}
-                imdbRating={imdbRating}
-              />
+                <><>
+                              <Link
+                                  className="card-btn btn-block" to={`/movies/${props.imdbID}`}
+                              >
+                                  title={Title}
+                              </Link></><MovieDetail
+                                //   title={Title}
+                                  src={Poster}
+                                  director={Director}
+                                  genre={Genre}
+                                  released={Released}
+                                  imdbRating={imdbRating}
+                                  imdbID={imdbID} /></>
             ) : (
               <h3>No Results to Display</h3>
             )}
