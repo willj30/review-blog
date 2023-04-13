@@ -21,7 +21,7 @@ const ReviewList = ({
             <h4 className="card-header text-light p-2 m-0">
               {showUsername ? (
                 <Link
-                  className="text-light"
+                  className="text-white"
                   to={`/profiles/${review.ReviewAuthor}`}
                 >
                   {review.ReviewAuthor} <br />
@@ -41,7 +41,7 @@ const ReviewList = ({
               <p>{review.ReviewText}</p>
             </div>
             <Link
-              className="card-btn btn-block btn-rounded"
+              className="card-btn text-white btn-rounded"
               to={`/reviews/${review._id}`}
             >
               Leave a comment on this review!
