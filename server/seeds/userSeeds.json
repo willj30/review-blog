@@ -1,52 +1,72 @@
 [
   {
-    "username": "Brian Kernighan",
-    "email": "bkernighan@techfriends.dev",
-    "password": "password01"
+    "username": "Jena Livia",
+    "email": "jenalivia@email.com",
+    "password": "password01",
+    "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/66/71/87/1000_F_266718716_NJ9LSBI9LyeUOeF7srLtfS8W5411SWCf.jpg",
+    "userBio": "Magna duis aute culpa dolore ut. Veniam labore Lorem non dolor aliqua irure voluptate laboris enim cillum ullamco. Non ad pariatur sunt excepteur. Consequat sint occaecat consequat aliqua labore sint veniam est dolor nostrud nulla ut nostrud laboris. Aute et et sint mollit eu id exercitation culpa voluptate voluptate quis elit esse minim. Irure elit sit amet sit exercitation duis magna ipsum mollit."
   },
   {
-    "username": "Max Kanat-Alexander",
-    "email": "mkanatalexander@techfriends.dev",
-    "password": "password02"
+    "username": "Cat Aric",
+    "email": "cataric@email.com",
+    "password": "password02",
+    "profilePicture": "https://as2.ftcdn.net/v2/jpg/02/36/95/59/1000_F_236955957_OEqpRqNjanfak01le5SiEiPU776glr30.jpg",
+    "userBio": "Labore minim irure ipsum qui est proident aute. Aute anim ipsum laboris minim ea eu duis nostrud. Ad et cillum esse esse eu aliquip sit. Aliqua eu ut occaecat sint. Ipsum laborum cupidatat laboris cillum officia tempor consectetur sint."
   },
   {
-    "username": "Why The Lucky Stiff",
-    "email": "wtls@techfriends.dev",
-    "password": "password03"
+    "username": "Cathy Brand",
+    "email": "cathybrand@email.com",
+    "password": "password03",
+    "profilePicture": "https://as1.ftcdn.net/v2/jpg/00/81/83/90/1000_F_81839013_CZmF1a6ed1WAcqQjG6GTKEQoHLt0MpBO.jpg",
+    "userBio": "Sunt in voluptate ex laboris qui ut cillum excepteur aliquip aliquip excepteur excepteur. Do eu mollit in nostrud non est magna ipsum ea amet non. Cillum adipisicing culpa irure ea. Irure et minim adipisicing exercitation laborum commodo ad eu sunt in ipsum."
   },
   {
-    "username": "Kent Beck",
-    "email": "kbeck@techfriends.dev",
-    "password": "password04"
+    "username": "Damian Colten",
+    "email": "damiancolten@email.com",
+    "password": "password04",
+    "profilePicture": "https://as2.ftcdn.net/v2/jpg/00/50/61/21/1000_F_50612106_Yl6gu0x8z06fITSyIfXWsGIzUa2gDGTb.jpg",
+    "userBio": "Magna dolore ex aute consequat minim officia labore fugiat ad amet. Elit qui anim velit adipisicing pariatur dolore laboris magna aute. Do eu nostrud est officia anim."
   },
   {
-    "username": "Edward V. Berard",
-    "email": "evberard@techfriends.dev",
-    "password": "password05"
+    "username": "Sophia Grey",
+    "email": "sophiagrey@email.com",
+    "password": "password05",
+    "profilePicture": "https://as1.ftcdn.net/v2/jpg/02/82/32/52/1000_F_282325226_vFvDtn1VK3aiTMAKrbg3Q1dWgWKnZu5K.jpg",
+    "userBio": "Mollit anim tempor ea deserunt nostrud officia id dolor sit sit deserunt cupidatat. Commodo elit deserunt irure reprehenderit proident. Nisi sint voluptate mollit Lorem laboris enim aliqua laborum. Cillum nisi enim adipisicing voluptate ut tempor sunt eu tempor et enim cupidatat."
   },
   {
-    "username": "Alan Kay",
-    "email": "akay@techfriends.dev",
-    "password": "password06"
+    "username": "Kendall Keane",
+    "email": "kendallkeane@email.com",
+    "password": "password06",
+    "profilePicture": "https://as1.ftcdn.net/v2/jpg/03/12/34/98/1000_F_312349880_Xt8XJDUgEBEeIgaCmBPAi3PE0W3pTkfr.jpg",
+    "userBio": "Sit cillum labore non reprehenderit quis exercitation laborum do deserunt voluptate. Ea cupidatat anim labore aute. Aliquip ex magna aliqua ea magna cillum amet laborum exercitation pariatur cupidatat eu nulla cillum. Dolore cupidatat occaecat adipisicing excepteur culpa. Eiusmod anim ea laboris sint ex quis non nisi officia."
   },
   {
-    "username": "C.A.R. Hoare",
-    "email": "choare@techfriends.dev",
-    "password": "password07"
+    "username": "Sammy Muriel",
+    "email": "sammymuriel@email.com",
+    "password": "password07",
+    "profilePicture": "https://as2.ftcdn.net/v2/jpg/01/86/45/75/1000_F_186457517_ZVI2WBRI5cdjObREuf4gkGnO0aco4tMT.jpg",
+    "userBio": "Ullamco exercitation proident eu irure ullamco veniam dolor deserunt do esse. Occaecat labore Lorem enim tempor dolor proident voluptate consectetur cillum qui consequat veniam in cupidatat. In laboris mollit aliquip duis consequat nisi dolor pariatur est aute aliqua nisi. Laborum tempor adipisicing ut in labore id enim minim ea pariatur magna ex consectetur deserunt."
   },
   {
-    "username": "David Thomas",
-    "email": "dthomas@techfriends.dev",
-    "password": "password08"
+    "username": "Scottie Cree",
+    "email": "scottiecree@email.com",
+    "password": "password08",
+    "profilePicture": "https://as1.ftcdn.net/v2/jpg/05/72/46/48/1000_F_572464826_7Fstkee0zLrT127w9DlA3PCXSGwPOW4u.jpg",
+    "userBio": "Duis sint est proident dolor nostrud Lorem minim est deserunt aliqua consectetur nulla. Deserunt amet excepteur et in nisi ullamco. Aute consequat ipsum proident anim do nostrud. Duis Lorem exercitation aute proident ipsum non. Ad mollit magna laborum aute mollit anim adipisicing ea deserunt incididunt. Nisi ullamco elit id excepteur et et proident Lorem et tempor culpa quis."
   },
   {
-    "username": "Donald Knuth",
-    "email": "dknuth@techfriends.dev",
-    "password": "password09"
+    "username": "Carlton Albin",
+    "email": "carltonalbin@email.com",
+    "password": "password09",
+    "profilePicture": "https://as2.ftcdn.net/v2/jpg/00/36/89/17/1000_F_36891738_7UjniA1fCTaqn7VshH4i7e4vx2lV6I93.jpg",
+    "userBio": "Cillum anim cillum in anim proident. Nostrud commodo sunt officia elit est elit esse pariatur culpa. Qui minim minim anim excepteur ea nisi culpa exercitation non sint velit ipsum aute."
   },
   {
-    "username": "Lernantino",
-    "email": "lernantino@techfriends.dev",
-    "password": "password10"
+    "username": "Becca Tansy",
+    "email": "beccatansy@email.com",
+    "password": "password10",
+    "profilePicture": "https://as1.ftcdn.net/v2/jpg/02/45/88/48/1000_F_245884808_OKT8Gqjru8XfYP4tmYfaVAPvMdWvBmBP.jpg",
+    "userBio": "Veniam dolor deserunt qui in ad anim amet irure exercitation fugiat non. Consequat eiusmod est in consectetur reprehenderit laborum. Consequat qui deserunt ipsum pariatur nisi dolore eu voluptate consequat. Labore laborum Lorem nostrud veniam magna tempor nulla ea voluptate est dolore."
   }
 ]
