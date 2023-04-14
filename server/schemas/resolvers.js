@@ -50,7 +50,7 @@ const resolvers = {
       return { token, user };
     },
     addReview: async (parent, { ReviewText }, context) => {
-      // if (context.user) {
+      if (context.user) {
         const review = await Review.create({
           ReviewText,
           ReviewAuthor: context.user.username,
