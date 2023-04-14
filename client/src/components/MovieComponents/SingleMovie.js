@@ -5,7 +5,7 @@ import Row from './Row';
 import Col from './Col';
 import Card from './Card';
 import SearchForm from './SearchForm';
-import MovieDetail from './MovieDetail';
+import MoviePoster from './MoviePoster';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 
@@ -27,62 +27,35 @@ const OmdbContainer = (props) => {
     searchMovie('The Matrix');
   }, []);
 
-  // Handler for input changes to the search form
-  const handleInputChange = (e) => setSearch(e.target.value);
-
-  // Handler for what happens when the search form is submitted
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    searchMovie(search);
-  };
 
   // Destructure the result object to make the code more readable, assign them to empty strings to start
   const {
     Title = '',
     Poster = '',
-    Director = '',
-    Genre = '',
-    Released = '',
-    imdbRating = '',
     imdbID = '',
   } = result;
 
-  /* Fall back to default header if `Title` is undefined
-  Does `Title` exist? If so, render the `MovieDetail` card 
-  If not, render a different header */
+
 
   return (
     <Container>
       <Row>
-        <Col size="md-8">
-          <Card heading={Title || 'Search for a Movie to Begin'}>
+        <Col size="md-12">    
             {Title ? (
-                <><>
-                              <Link
-                                  className="card-btn btn-block" to={`/movies/${props.imdbID}`}
-                              >
-                                  title={Title}
-                              </Link></><MovieDetail
-                                //   title={Title}
+                <><>    </>
+                              <Link to={`/movies/${Title}`}>
+                                
+                              <MoviePoster
+                                
                                   src={Poster}
-                                  director={Director}
-                                  genre={Genre}
-                                  released={Released}
-                                  imdbRating={imdbRating}
-                                  imdbID={imdbID} /></>
+                                   /></Link></> 
             ) : (
               <h3>No Results to Display</h3>
             )}
-          </Card>
+          
         </Col>
         <Col size="md-4">
-          <Card heading="Search">
-            <SearchForm
-              value={search}
-              handleInputChange={handleInputChange}
-              handleFormSubmit={handleFormSubmit}
-            />
-          </Card>
+        
         </Col>
       </Row>
     </Container>
