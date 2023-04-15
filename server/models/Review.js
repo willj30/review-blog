@@ -12,7 +12,6 @@ const reviewSchema = new Schema({
     type: String,
     required: 'You need to leave a Review!',
     minlength: 1,
-    maxlength: 280,
     trim: true,
   },
   ReviewAuthor: {
@@ -29,13 +28,13 @@ const reviewSchema = new Schema({
     {
       commentText: {
         type: String,
-        required: true,
+        // required: true,
         minlength: 1,
         maxlength: 280,
       },
       commentAuthor: {
         type: String,
-        required: true,
+        // required: true,
       },
       createdAt: {
         type: Date,
