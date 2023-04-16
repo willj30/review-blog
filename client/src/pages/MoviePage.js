@@ -10,6 +10,7 @@ import { useQuery } from '@apollo/client';
 import MovieInfo from '../components/MovieComponents/MovieInfo';
 import API from '../utils/API';
 import ReviewList from '../components/ReviewList';
+import ReviewForm from '../components/ReviewForm';
 
 
 
@@ -74,7 +75,10 @@ const OmdbContainer = () => {
                   released={Released}
                   imdbRating={imdbRating}
                   
-                  /></>
+                  />
+                  <br/>
+                  <ReviewForm></ReviewForm>
+                  </>
             ) : (
               <h3>No Results to Display</h3>
             )}
