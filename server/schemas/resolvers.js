@@ -6,7 +6,7 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('');
+      return User.find().populate('reviews');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('reviews');
@@ -59,7 +59,7 @@ const resolvers = {
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { Reviews: review._id } }
+          { $addToSet: { reviews: review._id } }
         );
 
         return review;
