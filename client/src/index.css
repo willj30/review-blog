@@ -1135,6 +1135,15 @@ a:hover {
   color: black;
   font-weight: bold;
 }
+.btn.btn-donate:hover {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: #000000;
+  }
+
+
 
 .btn.btn-light {
   background-color: #e3e31c;
