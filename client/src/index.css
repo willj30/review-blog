@@ -208,6 +208,11 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
+.nav {
+  display:flex;
+  align-items: center;
+  margin: 5px;
+}
 /**
  * Restore the focus styles unset by the previous rule.
  */
@@ -1238,9 +1243,10 @@ form {
 }
 
 form .form-group {
-  display: flex;
-  width: 100%;
-  margin: 0.625rem 0;
+  display: inline-flex;
+  
+  margin: 5px;
+  align-content: center;
   justify-content: center;
 }
 
