@@ -35,12 +35,9 @@ const typeDefs = gql`
     reviews(username: String): [Review]
     review(reviewId: ID!): Review
     me: User
+    createCheckoutSession: String
   }
 
-  type Checkout {
-    session: ID
-    type: String
-  }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

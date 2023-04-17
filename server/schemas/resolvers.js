@@ -26,7 +26,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    checkout: async () => {
+    createCheckoutSession: async () => {
       const session = await stripe.checkout.sessions.create({
         line_items: [
           {
@@ -38,7 +38,7 @@ const resolvers = {
         success_url: FRONTEND_DOMAIN + '/success',
         cancel_url: FRONTEND_DOMAIN + '/cancel'
       });
-        return JSON. stringify({
+        return JSON.stringify({
           url: session.url
         });
     },
