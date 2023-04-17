@@ -39,6 +39,7 @@ const typeDefs = gql`
 
   type Checkout {
     session: ID
+    type: String
   }
 
   type Mutation {

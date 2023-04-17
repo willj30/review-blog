@@ -7,10 +7,11 @@ const donationSchema = new Schema({
         default: Date.now
     },
     products: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Movie'
-        }
+        price: {
+            type: Number,
+            required: true,
+            min: 0.99
+          },
     ]
 });
 const Donate = mongoose.model('donation', donationSchema);

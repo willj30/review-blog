@@ -1,7 +1,9 @@
-const { AuthenticationError } = require('apollo-server-express');
+const { ApolloServer, AuthenticationError } = require('apollo-server-express');
 const { User, Review, Donate } = require('../models');
 const { signToken } = require('../utils/auth');
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require('stripe')('sk_test_51MxtRFDo9SyXBLxofi2gjQs95U8DAajcgZiLcsqph9hW9Uz99a21Z1rYDGdKNEEK1G55cVhpLt2V8JkuwWXT3mlP00mnqzydn3');
+
+const FRONTEND_DOMAIN = 'http://localhost:3000';
 
 const resolvers = {
   Query: {
@@ -24,7 +26,22 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    
+    checkout: async () => {
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            price: 'price_1MxtScDo9SyXBLxo5ShIrgvV',
+            quantity: 1
+          }
+        ],
+        mode: 'payment',
+        success_url: FRONTEND_DOMAIN + '/success',
+        cancel_url: FRONTEND_DOMAIN + '/cancel'
+      });
+        return JSON. stringify({
+          url: session.url
+        });
+    }
   },
   
   Mutation: {
