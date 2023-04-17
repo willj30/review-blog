@@ -16,6 +16,8 @@ import Profile from './pages/Profile';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MoviePage from './pages/MoviePage';
+import Cancel from './pages/Cancel';
+import Success from './pages/Success';
 
 
 
@@ -74,6 +76,12 @@ function App() {
                 <Route
                   path="/movies/:movieId"
                   element={<MoviePage />} />
+                <Route
+                  path="/success"
+                  element={< Success />} />   
+                <Route
+                  path="/cancel"
+                  element={< Cancel />} /> 
               </Routes>
             </div>
             <Footer />
