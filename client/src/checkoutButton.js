@@ -10,7 +10,6 @@ function CheckoutButton() {
         onCompleted: (queryData) => {
             console.log(queryData);
             let data = JSON.parse(queryData.createCheckoutSession);
-            console.log(data);
             let checkoutUrl = data.url;
             window.location.assign(checkoutUrl);
         }
@@ -21,7 +20,9 @@ function CheckoutButton() {
     console.log(data);
 
     return (
+
         <button className="btn btn-lg btn-donate m-2" onClick={() => startCheckout()}>
+
             Donate
         </button>
     );
