@@ -9,7 +9,7 @@ const donationSchema = new Schema({
     products: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'product'
+            ref: 'Movie'
         }
     ]
 });

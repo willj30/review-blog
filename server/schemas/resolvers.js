@@ -24,21 +24,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-     checkout: async (parents, args, context) => {
-      const url = new URL(context.headers.referer).origin;
-      const donate = new Donate({ products: args.product });
-      const line_items = [];
-
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items,
-        mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
-      });
-
-      return { session: session.id };
-     }
+    
   },
   
   Mutation: {
