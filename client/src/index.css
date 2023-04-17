@@ -139,8 +139,12 @@ sup {
  * Remove the border on images inside links in IE 10.
  */
 img {
+
   border-style: none;
+width:80%;
+
 }
+
 
 /* Forms
    ========================================================================== */
@@ -204,6 +208,11 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
+.nav {
+  display:flex;
+  align-items: center;
+  margin: 5px;
+}
 /**
  * Restore the focus styles unset by the previous rule.
  */
@@ -874,6 +883,15 @@ a:hover {
   padding-bottom: 1.625rem !important;
 }
 
+.posters {
+  display: flex;
+  flex-wrap: auto;
+  flex-direction: row;
+
+ margin:auto;
+
+}
+
 .text-uppercase {
   text-transform: uppercase !important;
 }
@@ -1225,9 +1243,10 @@ form {
 }
 
 form .form-group {
-  display: flex;
-  width: 100%;
-  margin: 0.625rem 0;
+  display: inline-flex;
+  
+  margin: 5px;
+  align-content: center;
   justify-content: center;
 }
 
@@ -1282,6 +1301,8 @@ label form [type='radio'] {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .container.container-fluid {
@@ -1564,7 +1585,15 @@ label form [type='radio'] {
   }
   .col-md-6 {
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 49%;
+    float:left;
+    display:inline;
+  }
+  .col-md-6-2 {
+    flex: 0 0 50%;
+    max-width: 49%;
+    float:right;
+    display:inline;
   }
   .col-md-7 {
     flex: 0 0 58.33333%;

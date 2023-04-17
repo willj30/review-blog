@@ -63,7 +63,7 @@ const OmdbContainer = () => {
   return (
     <Container>
       <Row>
-        <Col size="md-8">
+        <Col size="md-6">
           <Card >
             {Title ? (
               <><MovieInfo
@@ -77,7 +77,7 @@ const OmdbContainer = () => {
                   
                   />
                   <br/>
-                  <ReviewForm></ReviewForm>
+                  
                   </>
             ) : (
               <h3>No Results to Display</h3>
@@ -89,17 +89,17 @@ const OmdbContainer = () => {
           
         </Col>
    
-      </Row>
-      <div className="col-12 col-md-8 mb-3">
+      
+      <div className="col-12 col-md-6-2 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ReviewList
-              reviews={reviews}
-              title="Latest Reviews:"
-            />
+            <><ReviewForm></ReviewForm><ReviewList
+                reviews={reviews}
+                title="Latest Reviews:" /></>
           )}
         </div>
+        </Row>
     </Container>
   
   );

@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import Container from './Container';
 import Row from './Row';
 import Col from './Col';
-import Card from './Card';
-import SearchForm from './SearchForm';
+
 import MoviePoster from './MoviePoster';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
@@ -24,7 +23,7 @@ const OmdbContainer = (props) => {
   // The empty optional array [] will cause the hook to only run one time after the component loads
   // Refer to https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects
   useEffect(() => {
-    searchMovie('The Matrix');
+    searchMovie('Fight Club');
   }, []);
 
 
