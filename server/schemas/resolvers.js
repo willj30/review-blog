@@ -1,5 +1,5 @@
 const { ApolloServer, AuthenticationError } = require('apollo-server-express');
-const { User, Review, Donate } = require('../models');
+const { User, Review } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_51MxtRFDo9SyXBLxofi2gjQs95U8DAajcgZiLcsqph9hW9Uz99a21Z1rYDGdKNEEK1G55cVhpLt2V8JkuwWXT3mlP00mnqzydn3');
 
@@ -41,7 +41,7 @@ const resolvers = {
         return JSON. stringify({
           url: session.url
         });
-    }
+    },
   },
   
   Mutation: {
