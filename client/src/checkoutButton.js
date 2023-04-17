@@ -20,7 +20,9 @@ function CheckoutButton() {
     console.log(data);
 
     return (
-        <button className="btn btn-info btn-donate" onClick={() => startCheckout()}>
+
+        <button className="btn btn-lg btn-donate m-2" onClick={() => startCheckout()}>
+
             Donate
         </button>
     );
