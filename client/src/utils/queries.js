@@ -43,6 +43,22 @@ export const QUERY_SINGLE_REVIEW = gql`
   }
 `;
 
+export const QUERY_SINGLE_MOVIE = gql`
+  query getSingleMovie($movieId: ID!) {
+    movie(movieId: $movieId) {
+      _id
+      imdbID
+      name
+      reviews {
+        _id
+        ReviewText
+        ReviewAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
 export const QUERY_ME = gql`
   query me {
     me {

@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const movieSchema = new Schema({
-  omdbID: {
+  imdbID: {
     type: String,
     // required: true
   },

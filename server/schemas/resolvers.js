@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Review } = require('../models');
+const { User, Review, Movie } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -17,6 +17,9 @@ const resolvers = {
     },
     review: async (parent, { reviewId }) => {
       return Review.findOne({ _id: reviewId });
+    },
+    movie: async (parent, {movieId}) => {
+      return await Movie.findOne({ _id: movieId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
